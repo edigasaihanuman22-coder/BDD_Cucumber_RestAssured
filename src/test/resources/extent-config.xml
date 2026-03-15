@@ -1,0 +1,7 @@
+<extentreports>
+    <configuration>
+        <theme>dark</theme>
+        <documentTitle>Cucumber API Test Report</documentTitle>
+        <reportName>Automation Execution Report</reportName>
+    </configuration>
+</extentreports>

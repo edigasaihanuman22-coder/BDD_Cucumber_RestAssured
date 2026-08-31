@@ -1,0 +1,46 @@
+name: Cucumber BDD Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      cucumber_tag:
+        description: "Cucumber tag to execute"
+        required: true
+        default: "@smoke"
+
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cucumber-tests:
+    name: Run Cucumber Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout source code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Setup Java
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: maven
+
+      # Display Java and Maven versions
+      - name: Check Java version
+        run: java -version
+
+      - name: Check Maven version
+        run: mvn -version
+
+      # Run Cucumber tests using selected tag
+      - name: Run Cucumber Tests
+        run: mvn test -Dcucumber.filter.tags="${{ github.event.inputs.cucumber_tag }}"

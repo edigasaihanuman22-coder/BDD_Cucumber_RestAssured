@@ -39,11 +39,7 @@ public class Hooks {
         String scenarioName = scenario.getName();
         String status = scenario.getStatus().toString();
 
-        ScenarioResult result = new ScenarioResult(
-                scenarioName,
-                status,
-                executionTime
-        );
+        ScenarioResult result = new ScenarioResult(scenarioName,status,executionTime);
 
         results.add(result);
 

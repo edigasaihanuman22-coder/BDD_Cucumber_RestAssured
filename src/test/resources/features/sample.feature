@@ -10,4 +10,4 @@ Feature: Restassured validation
   @api @restassured
   Scenario: Calling API end points for restAssured
     Given call API endpoint
-    When validating rating count should be 120
+    When validating rating count should be 130
